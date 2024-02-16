@@ -1,0 +1,21 @@
+<ul>
+  @for (model of models ; track model ) {
+  <li>
+    <button class="button-list" (click)="selectModel(model)">
+      <span>Date: {{ model.date | date}}</span>
+      <mat-divider></mat-divider>
+      <div class="list-content">
+        <img
+          ngSrc="assets/images/{{ model.modelName }}.png"
+          priority
+          alt="{{ model.modelName }}"
+          [width]="80"
+          [height]="80" />
+        <div class="align-right">
+          <span>{{ model.modelName | titlecase}}</span>
+        </div>
+      </div>
+    </button>
+  </li>
+  }
+</ul>

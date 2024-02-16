@@ -1,0 +1,27 @@
+@if (models$ | async; as models) {
+<mat-toolbar>
+  <!--Search a model by his name -->
+  <div class="search-container">
+    <app-input-search [modelList]="models"></app-input-search>
+  </div>
+
+  <!--Add a new model -->
+  <button mat-button (click)="openDialog()" class="add-model-btn">
+    <mat-icon> add </mat-icon>
+    <span>Ajouter un modèle 3D</span>
+  </button>
+</mat-toolbar>
+
+<div class="content-container">
+  <div class="main-list-container">
+    <app-list
+      [models]="models"
+      (defineModel)="handleModelChange($event)"></app-list>
+  </div>
+  <div class="model-container">
+    <app-model-details
+      [model]="modelSelected"
+      (modelDeleted)="refreshModels()"></app-model-details>
+  </div>
+</div>
+}

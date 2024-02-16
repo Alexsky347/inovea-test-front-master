@@ -1,0 +1,17 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width">
+    <mat-label>Chercher un modèle 3D</mat-label>
+    <input
+      type="text"
+      placeholder="Chercher par nom"
+      aria-label="Nom"
+      matInput
+      [formControl]="modelName"
+      [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete">
+      @for (model of filteredModelList | async; track model) {
+      <mat-option [value]="model.modelName">{{model.modelName}}</mat-option>
+      }
+    </mat-autocomplete>
+  </mat-form-field>
+</form>

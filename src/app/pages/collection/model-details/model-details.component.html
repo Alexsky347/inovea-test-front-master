@@ -1,0 +1,24 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>S{{ model.modelName }}</mat-card-title>
+    <mat-card-subtitle>{{ model.author }}</mat-card-subtitle>
+  </mat-card-header>
+  <img
+    mat-card-image
+    priority
+    ngSrc="assets/images/{{ model.modelName }}.png"
+    alt="{{ model.modelName }}"
+    [width]="160"
+    [height]="160" />
+  <mat-card-content>
+    <p>Publié le: {{ model.date | date}}</p>
+    <p>Polygones: {{ model.polygons}}</p>
+    <p>Description: {{ model.description}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button color="primary" (click)="openDialog()">Éditer</button>
+    <button mat-button color="warn" (click)="deleteItem(model.id)">
+      Supprimer
+    </button>
+  </mat-card-actions>
+</mat-card>

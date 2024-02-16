@@ -1,0 +1,42 @@
+<h2 mat-dialog-title>
+  {{formGroup.get('modelName')?.value ? 'Edit Model' : 'Create Model'}}
+</h2>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="formGroup" class="form-column">
+    <mat-form-field>
+      <mat-label>Model Name</mat-label>
+      <input matInput formControlName="modelName" required />
+      @if (formGroup.get('modelName')?.invalid &&
+      formGroup.get('modelName')?.touched){
+      <mat-error> Model Name is required </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput formControlName="name" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Author</mat-label>
+      <input matInput formControlName="author" required />
+      @if(formGroup.get('author')?.invalid && formGroup.get('author')?.touched){
+      <mat-error> Author is required </mat-error>
+      }
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Polygons</mat-label>
+      <input matInput type="number" formControlName="polygons" required />
+      @if (formGroup.get('polygons')?.invalid &&
+      formGroup.get('polygons')?.touched){
+      <mat-error> Polygons is required </mat-error>
+      }
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button [mat-dialog-close]="null">Cancel</button>
+  <button mat-button cdkFocusInitial (click)="saveChanges()">Save</button>
+</mat-dialog-actions>

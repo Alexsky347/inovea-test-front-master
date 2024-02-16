@@ -1,0 +1,42 @@
+mat-toolbar {
+  height: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background: #191d20;
+
+  button.add-model-btn {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: #2986fd;
+    padding: 10px 20px;
+    color: white;
+    border-radius: 10px;
+    border: transparent;
+    margin-right: 20px;
+    &:hover {
+      background-color: #1e5fed;
+      cursor: pointer;
+    }
+  }
+}
+
+.content-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  .main-list-container {
+    flex: 30%;
+    margin: 10px 0px;
+    height: auto;
+    max-width: 360px;
+  }
+  .model-container {
+    flex: 65%;
+    margin: 10px 0px;
+    border-radius: 10px;
+  }
+}
