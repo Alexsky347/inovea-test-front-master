@@ -65,9 +65,11 @@ export class CollectionComponent implements OnDestroy {
     this.modelSelected = model;
   }
   refreshDetails() {
-    this.models$.pipe(takeUntil(this.destroy$)).subscribe((models) => {
-      this.modelSelected = models[0];
-    });
+    this.models$
+      .pipe(takeUntil(this.destroy$))
+      .subscribe((models: ModelCollection) => {
+        this.modelSelected = models[0];
+      });
   }
 
   refreshModels() {
@@ -76,9 +78,11 @@ export class CollectionComponent implements OnDestroy {
 
   openDialog(): void {
     const dialogRef = this.dialog.open(ModelDialogComponent, {
-      data: null
+      data: null,
+      width: '70%',
+      height: '70%'
     });
-    dialogRef.afterClosed().subscribe((result) => {
+    dialogRef.afterClosed().subscribe((result: Model) => {
       if (result) {
         this.refreshModels();
       }

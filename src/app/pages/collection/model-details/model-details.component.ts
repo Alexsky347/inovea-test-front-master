@@ -24,12 +24,14 @@ export class ModelDetailsComponent {
 
   openDialog(): void {
     this.dialog.open(ModelDialogComponent, {
-      data: this.model
+      data: this.model,
+      width: '70%',
+      height: '70%'
     });
   }
   deleteItem(id: string) {
     const isDelete = this.globalService.deleteModel(id);
-    isDelete.subscribe((data) => {
+    isDelete.subscribe((data: Model) => {
       if (data) this.modelDeleted.emit(data.id);
     });
   }

@@ -1,5 +1,5 @@
 <h2 mat-dialog-title>
-  {{formGroup.get('modelName')?.value ? 'Edit Model' : 'Create Model'}}
+  {{formGroup.get('modelName')?.value ? 'Editer Model' : 'Créer Model'}}
 </h2>
 <mat-dialog-content class="mat-typography">
   <form [formGroup]="formGroup" class="form-column">
@@ -37,6 +37,6 @@
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
-  <button mat-button [mat-dialog-close]="null">Cancel</button>
-  <button mat-button cdkFocusInitial (click)="saveChanges()">Save</button>
+  <button mat-button [mat-dialog-close]="null">Annuler</button>
+  <button mat-button cdkFocusInitial (click)="saveChanges()">Sauver</button>
 </mat-dialog-actions>
